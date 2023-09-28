@@ -2,6 +2,7 @@
 import express, { Application } from 'express'
 import cors from 'cors'
 import routes from './routes'
+import "reflect-metadata"
 
 export default class App {
   app: Application
