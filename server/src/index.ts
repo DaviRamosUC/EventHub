@@ -1,5 +1,5 @@
-import App from './app'
+import App from "./app";
 
-import config from './config'
+import config from "./config";
 
-new App().listen(config.port)
+new App().listen(config.port);
