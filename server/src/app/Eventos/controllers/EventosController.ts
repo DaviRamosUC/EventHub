@@ -2,11 +2,11 @@ import { Request, Response } from 'express'
 import { EventoService } from '../services/eventoService'
 
 class EventosController {
-  public eventoService: EventoService;
-  constructor(){
-    this.eventoService = new EventoService();
+  public eventoService: EventoService
+  constructor() {
+    this.eventoService = new EventoService()
   }
-  
+
   async create(_req: Request, res: Response): Promise<Response> {
     const evento = this.eventoService.createEvento(_req.body)
 
