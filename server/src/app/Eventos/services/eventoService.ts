@@ -6,9 +6,8 @@ export class EventoService {
   private eventoRepository: EventoRepository;
   private appDataSource : any
   constructor() {
-    () => {
-      this.appDataSource = getDataSource();
-    }  
+    this.appDataSource = getDataSource().manager;
+    console.log(this.appDataSource)
     this.eventoRepository = this.appDataSource.getCustomRepository(EventoRepository);
   }
 

@@ -1,6 +1,6 @@
 import { DataSource } from "typeorm";
 
-const AppDataSource: any = new DataSource({
+const AppDataSource: DataSource = new DataSource({
   type: "postgres",
   host: "localhost",
   port: 5433,
@@ -19,13 +19,6 @@ AppDataSource.initialize()
   })
   .catch((error: any) => console.log(error));
 
-export const getDataSource = async (delay = 3000): Promise<DataSource> => {
-  if (AppDataSource.isInitialized) return Promise.resolve(AppDataSource);
-
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (AppDataSource.isInitialized) resolve(AppDataSource);
-      else reject("Failed to create connection with database");
-    }, delay);
-  });
+export const getDataSource =  (): DataSource => {
+  return AppDataSource
 };
